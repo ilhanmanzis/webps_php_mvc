@@ -5,15 +5,15 @@ Alhamdulillah saya telah menyelesaikan project latihan pertama saya pengaplikasi
 framework dan bahasa yang saya gunakan
 
 Frontend :
+- Bootstrap 5
+- Template SB Admin 2
 
-Bootstrap 5
-Template SB Admin 2
 Backend
+- PHP Native
 
-PHP Native
 Database
+- Mysql
 
-Mysql
 Xampp versi php 7.4
 
 untuk mengubah baseurl atau link, database, dan lainya ada di dalam app/config/config.php
