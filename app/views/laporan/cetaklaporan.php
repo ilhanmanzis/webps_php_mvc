@@ -92,33 +92,33 @@
                     $minumQris = 0;
                     $deviceQris = 0;
                     $total=0;
-                    foreach($data['transaksi'] as $data):
+                    foreach($data['transaksi'] as $transaksi):
                     ?>
                     <tr>
                         <td  class="align-middle border center"><?= $i++; ?></td>
                         
-                        <td class="align-middle border center"><?= $data['no_tv']; ?></td>
-                        <td class="align-middle border center"><?= $data['paket']; ?></td>
-                        <td class="align-middle border center"><?= $data['name_device']; ?></td>
-                        <td class="align-middle border center"><?= $data['jam_mulai']; ?></td>
-                        <td class="align-middle border center"><?= $data['jam_selesai']; ?></td>
-                        <td class="align-middle border center"><?= $data['tambah_waktu']; ?></td>
-                        <td class="align-middle border center"><?= $data['harga_device']; ?></td>
-                        <td class="align-middle border center"><?= $data['minuman_3k']; ?></td>
-                        <td class="align-middle border center"><?= $data['minuman_4k']; ?></td>
-                        <td class="align-middle border center"><?= $data['harga_minum']; ?></td>
-                        <td class="align-middle border center"><?= $data['total']; ?></td>
-                        <td class="align-middle border center"><?= $data['bayar']; ?></td>
-                        <td class="align-middle border center"><?= $data['keterangan']; ?></td>
+                        <td class="align-middle border center"><?= $transaksi['no_tv']; ?></td>
+                        <td class="align-middle border center"><?= $transaksi['paket']; ?></td>
+                        <td class="align-middle border center"><?= $transaksi['name_device']; ?></td>
+                        <td class="align-middle border center"><?= $transaksi['jam_mulai']; ?></td>
+                        <td class="align-middle border center"><?= $transaksi['jam_selesai']; ?></td>
+                        <td class="align-middle border center"><?= $transaksi['tambah_waktu']; ?></td>
+                        <td class="align-middle border center"><?= $transaksi['harga_device']; ?></td>
+                        <td class="align-middle border center"><?= $transaksi['minuman_3k']; ?></td>
+                        <td class="align-middle border center"><?= $transaksi['minuman_4k']; ?></td>
+                        <td class="align-middle border center"><?= $transaksi['harga_minum']; ?></td>
+                        <td class="align-middle border center"><?= $transaksi['total']; ?></td>
+                        <td class="align-middle border center"><?= $transaksi['bayar']; ?></td>
+                        <td class="align-middle border center"><?= $transaksi['keterangan']; ?></td>
                     </tr>
                     <?php
-                    $total += $data['total']; 
-                    if($data['bayar']=='cash'){
-                        $minumCash += $data['harga_minum']; 
-                        $deviceCash += $data['harga_device']; 
+                    $total += $transaksi['total']; 
+                    if($transaksi['bayar']=='cash'){
+                        $minumCash += $transaksi['harga_minum']; 
+                        $deviceCash += $transaksi['harga_device']; 
                     }else{
-                        $minumQris += $data['harga_minum']; 
-                        $deviceQris += $data['harga_device']; 
+                        $minumQris += $transaksi['harga_minum']; 
+                        $deviceQris += $transaksi['harga_device']; 
                     }
                     endforeach;
                     ?>
@@ -128,8 +128,8 @@
             <td width="22%">
                 <table width="100%" class="table">
                     <tr class="table border">
-                        <td class="border" width="60%">Pendapatan Cash</td>
-                        <td class="border" width="40%" >Jumlah</td>
+                        <td class="border" width="60%"><strong>Pendapatan Cash</strong></td>
+                        <td class="border" width="40%" ><strong>Jumlah</strong></td>
                     </tr>
                     <tr class="table border">
                         <td class="border">PS & PC</td>
@@ -140,20 +140,20 @@
                         <td class="border">Rp. <?=$minumCash;?></td>
                     </tr>
                     <tr class="table border">
-                        <td class="border">Total</td>
-                        <td class="border">Rp. <?=$deviceCash+ $minumCash;?></td>
+                        <td class="border"><strong>Total</strong></td>
+                        <td class="border"><strong>Rp. <?=$deviceCash+ $minumCash;?></strong></td>
                     </tr>
                     <tr >
                         <td ></td>
                         <td ></td>
                     </tr>
                     <tr>
-                        <td><br><br></td>
+                        <td><br></td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td class="border" width="60%">Pendapatan Qris</td>
-                        <td class="border" width="40%" >Jumlah</td>
+                        <td class="border" width="60%"><strong>Pendapatan Qris</strong></td>
+                        <td class="border" width="40%" ><strong>Jumlah</strong></td>
                     </tr>
                     <tr class="table border">
                         <td class="border">PS & PC</td>
@@ -164,16 +164,39 @@
                         <td class="border">Rp. <?=$minumQris;?></td>
                     </tr>
                     <tr class="table border">
-                        <td class="border">Total</td>
-                        <td class="border">Rp. <?=$deviceQris+ $minumQris;?></td>
+                        <td class="border"><strong>Total<strong></td>
+                        <td class="border"><strong>Rp. <?=$deviceQris+ $minumQris;?><strong></td>
+                    </tr>
+                    <tr>
+                        <td><br></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="border" width="60%"><strong>Pengeluaran<strong></td>
+                        <td class="border" width="40%" ><strong>Jumlah<strong></td>
+                    </tr>
+                    <?php
+                    $totalPengeluaran = 0;
+                    foreach($data['pengeluaran'] as $pengeluaran):
+                    ?>
+                    <tr class="table border">
+                        <td class="border"><?=$pengeluaran['nama_pengeluaran']?></td>
+                        <td class="border">Rp. <?=$pengeluaran['jumlah_pengeluaran']?></td>
+                    </tr>
+                    <?php 
+                    $totalPengeluaran += $pengeluaran['jumlah_pengeluaran'];
+                    endforeach;?>
+                    <tr class="table border">
+                        <td class="border"><strong>Total<strong></td>
+                        <td class="border"><strong>Rp. <?=$totalPengeluaran;?><strong></td>
                     </tr>
                     <tr>
                         <td><br><br></td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td class="border" width="60%">Total Pendapatan</td>
-                        <td class="border" width="40%" >Rp. <?=$total;?></td>
+                        <td class="border" width="60%"><strong>Total Pendapatan<strong></td>
+                        <td class="border" width="40%" ><strong>Rp. <?=$total - $totalPengeluaran;?><strong></td>
                     </tr>
                 </table>
             </td>

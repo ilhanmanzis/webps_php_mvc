@@ -72,7 +72,9 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Menu Transaksi</h6>
                         <a class="collapse-item" href="<?= BASEURL?>/transaksi">Transaksi</a>
+                        <a class="collapse-item" href="<?= BASEURL?>/pengeluaran">Pengeluaran</a>
                         <a class="collapse-item" href="<?= BASEURL?>/alltransaksi">All Transaksi</a>
+                        <a class="collapse-item" href="<?= BASEURL?>/allpengeluaran">All Pengeluaran</a>
 
                     </div>
                 </div>

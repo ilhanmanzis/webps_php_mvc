@@ -74,7 +74,7 @@ Flasher::flash();
     $('.view_data').on('click', function(){
         const id_device = $(this).data('id');
         $.ajax({
-            url:`${BASEURL}/device/getdevice`,
+            url:'<?= BASEURL;?>/device/getdevice',
             method:'post',
             data:{id_device:id_device},
             success:function(data){

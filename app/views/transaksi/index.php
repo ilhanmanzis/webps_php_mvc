@@ -40,6 +40,9 @@ Flasher::flash();
                 </thead>
                 <tbody class="text-center ">
                     <?php $i=1;
+                    $totalDevice=0;
+                    $totalMinum=0;
+                    $totalAll=0;
                     foreach($data['transaksi'] as $data): ?>
                     <tr>
                         <td  class="align-middle"><?= $i++; ?></td>
@@ -65,11 +68,24 @@ Flasher::flash();
                         <a href="#" class="view_data btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#myModal" data-id="<?= $data['id_transaksi'];?>">Edit</a>
                         </td>
                     </tr>
-                    <?php endforeach; ?>
-                </tbody>
-                
 
-                
+                    <?php 
+                        $totalDevice += $data['harga_device'];
+                        $totalMinum += $data['harga_minum'];
+                        $totalAll += $data['total'];
+                    endforeach; 
+                    ?>
+
+                    
+                </tbody>
+                <tr class="text-center">
+                        <td colspan="7" class="align-middle">Jumlah</td>
+                        <td class="align-middle"><?=$totalDevice;?></td>
+                        <td colspan="2" class="align-middle"></td>
+                        <td class="align-middle"><?=$totalMinum;?></td>
+                        <td class="align-middle"><?=$totalAll;?></td>
+                        <td colspan="3" class="align-middle"></td>
+                </tr>
             </table>
         </div>
     </div>
@@ -98,7 +114,7 @@ Flasher::flash();
     $('.view_jam').on('click', function(){
         const id_transaksi = $(this).data('id');
         $.ajax({
-            url:'http://localhost/webps/transaksi/gettransaksi',
+            url:'<?= BASEURL;?>/transaksi/gettransaksi',
             method:'post',
             data:{id_transaksi:id_transaksi},
             success:function(data){
@@ -129,7 +145,7 @@ Flasher::flash();
     $('.view_data').on('click', function(){
         const id_transaksi = $(this).data('id');
         $.ajax({
-            url:`${BASEURL}/transaksi/gettransaksiupdate`,
+            url:'<?= BASEURL;?>/transaksi/gettransaksiupdate',
             method:'post',
             data:{id_transaksi:id_transaksi},
             success:function(data){

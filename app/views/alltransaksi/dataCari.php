@@ -38,6 +38,9 @@
                 </thead>
                 <tbody class="text-center ">
                     <?php $i=1;
+                    $totalDevice=0;
+                    $totalMinum=0;
+                    $totalAll=0;
                     foreach($data['transaksi'] as $data): ?>
                     <tr>
                         <td  class="align-middle"><?= $i++; ?></td>
@@ -68,11 +71,21 @@
                         <a href="<?= BASEURL; ?>/alltransaksi/delete/<?= $data['id_transaksi']; ?>" class="btn btn-sm btn-danger" onclick='return confirm("Apakah yakin ingin menghapus data?")'>Hapus</a>
                         </td>
                     </tr>
-                    <?php endforeach; ?>
+                    <?php 
+                        $totalDevice += $data['harga_device'];
+                        $totalMinum += $data['harga_minum'];
+                        $totalAll += $data['total'];
+                    
+                    endforeach; ?>
                 </tbody>
-                
-
-                
+                <tr class="text-center">
+                        <td colspan="7" class="align-middle">Jumlah</td>
+                        <td class="align-middle"><?=$totalDevice;?></td>
+                        <td colspan="2" class="align-middle"></td>
+                        <td class="align-middle"><?=$totalMinum;?></td>
+                        <td class="align-middle"><?=$totalAll;?></td>
+                        <td colspan="3" class="align-middle"></td>
+                </tr>    
             </table>
         </div>
     </div>
@@ -102,7 +115,7 @@
     $('.view_jam').on('click', function(){
         const id_transaksi = $(this).data('id');
         $.ajax({
-            url:'http://localhost/webps/alltransaksi/gettransaksi',
+            url:'<?= BASEURL;?>/alltransaksi/gettransaksi',
             method:'post',
             data:{id_transaksi:id_transaksi},
             success:function(data){
@@ -134,7 +147,7 @@
     $('.view_data').on('click', function(){
         const id_transaksi = $(this).data('id');
         $.ajax({
-            url:`${BASEURL}/alltransaksi/gettransaksiupdate`,
+            url:'<?= BASEURL;?>/alltransaksi/gettransaksiupdate',
             method:'post',
             data:{id_transaksi:id_transaksi},
             success:function(data){

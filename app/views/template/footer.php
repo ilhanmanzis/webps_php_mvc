@@ -51,8 +51,8 @@ aria-hidden="true">
 
 <!-- Bootstrap core JavaScript-->
 <!-- Bootstrap core JavaScript-->
-<script src="<?= BASEURL;?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="<?= BASEURL;?>/vendor/jquery/jquery.min.js"></script>
+<script src="<?= BASEURL;?>/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
 <script src="<?= BASEURL;?>/vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -81,7 +81,7 @@ aria-hidden="true">
             }]
         });
     });
-    
+
 </script>
 <script src="<?= BASEURL;?>/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 

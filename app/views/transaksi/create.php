@@ -26,7 +26,7 @@
           ?>
         </select>
         <div class="form-group row">
-            <div class="col-sm-6 mb-3 mb-sm-0">
+        <div class="col-sm-6 mb-3 mb-sm-0">
               <label for="mulai">Mulai</label>
               <input type="time" class="form-control form-control-user" id="jamMulai" name="mulai" required>
               
@@ -46,7 +46,14 @@
             </div>
             <div class="col-sm-6">
             <label for="selesai">Selesai</label>
-                <input type="time" class="form-control form-control-user" id="exampleSelesai" name="selesai" required>
+                <input type="time" class="form-control form-control-user" id="jamSelesai" name="selesai" required>
+
+                <!-- fitur tambahan -->
+                <!-- <script>
+                  const doneTime = document.getElementById('jamSelesai');
+                  doneTime.value = `${formatJam+1}:${formatMenit}`;
+                </script> -->
+
             </div>
         </div>
         <label for="Minuman">Minuman</label>

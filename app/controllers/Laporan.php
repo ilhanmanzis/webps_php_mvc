@@ -24,7 +24,9 @@ class Laporan extends Controller {
             $data['awal']=$_POST['awal'];
             $data['akhir']=$_POST['akhir'];
             $data['transaksi'] = $this->model('Transaksi_model')->cariTransaksi($_POST);
+            
             if($data['transaksi']){
+                $data['pengeluaran'] = $this->model('Pengeluaran_model')->cariPengeluaran($_POST);
                 $this->view('laporan/cetaklaporan', $data);
             }else{
                 Flasher::setFlash('Data Transaksi', 'kosong','','danger');
@@ -45,6 +47,7 @@ class Laporan extends Controller {
             $data['transaksi'] = $this->model('Transaksi_model')->getAllTransaksi();
             
             if($data['transaksi']){
+                $data['pengeluaran'] = $this->model('Pengeluaran_model')->getAllPengeluaran($_POST);
                 $this->view('laporan/cetaksemualaporan', $data);
             }else{
                 Flasher::setFlash('Data Transaksi', 'kosong','','danger');

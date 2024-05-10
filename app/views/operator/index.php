@@ -67,7 +67,7 @@ Flasher::flash();
     $('.view_data').on('click', function(){
         const id_operator = $(this).data('id');
         $.ajax({
-            url:`${BASEURL}/operator/getoperator`,
+            url:'<?= BASEURL;?>/operator/getoperator',
             method:'post',
             data:{id_operator:id_operator},
             success:function(data){

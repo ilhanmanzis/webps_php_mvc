@@ -67,7 +67,7 @@ Flasher::flash();
     $('.view_data').on('click', function(){
         const id_sift = $(this).data('id');
         $.ajax({
-            url:`${BASEURL}/sift/getsift`,
+            url:'<?= BASEURL;?>/sift/getsift',
             method:'post',
             data:{id_sift:id_sift},
             success:function(data){

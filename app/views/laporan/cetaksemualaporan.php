@@ -12,7 +12,6 @@
         .table{
             border-collapse: collapse;
             vertical-align: top;
-            
         }
         .border{
             border: 1px solid #000000;
@@ -21,7 +20,7 @@
             text-align: center;
         }
         .middle{
-            vertical-align: middle;
+            vertical-align: top;
         }
     </style>
 </head>
@@ -100,23 +99,23 @@
         }
         endforeach;
         ?>
-        <tr>
-            <td class="border" colspan="8">Total</td>
-            <td >Rp. <?=$device;?></td>
+        <tr class="center">
+            <td class="border center" colspan="8"><strong>Total</strong></td>
+            <td ><strong>Rp. <?=$device;?></strong></td>
             <td class="border" colspan="2"></td>
-            <td class="border"> Rp. <?=$minum;?></td>
-            <td class="border"> Rp. <?=$total;?></td>
+            <td class="border"> <strong>Rp. <?=$minum;?></strong></td>
+            <td class="border"> <strong>Rp. <?=$total;?></strong></td>
             <td class="border" colspan="4"></td>
         </tr>
     </table>
     <br>
-    <table width="70%">
+    <table width="100%" class="table">
         <tr>
-            <td width="33%">
+            <td width="25%" class="middle">
                 <table class="table border" width="100%">
                     <tr class="table border">
-                        <td class="border" width="60%">Pendapatan Cash</td>
-                        <td class="border" width="40%" >Jumlah</td>
+                        <td class="border" width="60%"><strong>Pendapatan Cash</strong></td>
+                        <td class="border" width="40%" ><strong>Jumlah</strong></td>
                     </tr>
                     <tr class="table border">
                         <td class="border">PS & PC</td>
@@ -127,17 +126,17 @@
                         <td class="border">Rp. <?=$minumCash;?></td>
                     </tr>
                     <tr class="table border">
-                        <td class="border">Total</td>
-                        <td class="border">Rp. <?=$deviceCash+ $minumCash;?></td>
+                        <td class="border"><strong>Total</strong></td>
+                        <td class="border"><strong>Rp. <?=$deviceCash+ $minumCash;?></strong></td>
                     </tr>
                 </table>
             </td>
             <td width="2%"></td>
-            <td width="33%">
+            <td width="25%" class="middle">
             <table class="table border" width="100%">
                     <tr class="table border">
-                        <td class="border" width="60%">Pendapatan Qris</td>
-                        <td class="border" width="40%" >Jumlah</td>
+                        <td class="border" width="60%"><strong>Pendapatan Qris</strong></td>
+                        <td class="border" width="40%" ><strong>Jumlah</strong></td>
                     </tr>
                     <tr class="table border">
                         <td class="border">PS & PC</td>
@@ -148,17 +147,41 @@
                         <td class="border">Rp. <?=$minumQris;?></td>
                     </tr>
                     <tr class="table border">
-                        <td class="border">Total</td>
-                        <td class="border">Rp. <?=$deviceQris+ $minumQris;?></td>
+                        <td class="border"><strong>Total</strong></td>
+                        <td class="border"><strong>Rp. <?=$deviceQris+ $minumQris;?></strong></td>
                     </tr>
                 </table>
             </td>
-            <td width="2%"></td>
+            <td width="1%"></td>
+            <td width="25%" class="middle">
+                <table class="table border" width="100%">
+                <tr>
+                    <td class="border" width="55%"><strong>Pengeluaran</strong></td>
+                    <td class="border" width="45%" ><strong>Jumlah</strong></td>
+                </tr>
+                <?php
+                $totalPengeluaran = 0;
+                foreach($data['pengeluaran'] as $pengeluaran):
+                ?>
+                <tr>
+                    <td class="border" width="55%"><?=$pengeluaran['nama_pengeluaran'];?></td>
+                    <td class="border" width="45%" ><?=$pengeluaran['jumlah_pengeluaran'];?></td>
+                </tr>
+                <?php 
+                $totalPengeluaran += $pengeluaran['jumlah_pengeluaran'];
+                endforeach; ?>
+                <tr>
+                    <td class="border" width="55%"><strong>Total</strong></td>
+                    <td class="border" width="45%" ><strong><?=$totalPengeluaran;?></strong></td>
+                </tr>
+            </table>
+            </td>
+            <td width="1%"></td>
             <td width="30%" class="middle">
             <table class="table border middle" width="100%">
                     <tr class="table border middle">
-                        <td class="border middle" width="60%">Total Pendapatan</td>
-                        <td class="border middle" width="40%">Rp. <?=$total;?></td>
+                        <td class="border middle" width="60%"><strong>Total Pendapatan</strong></td>
+                        <td class="border middle" width="40%"><strong>Rp. <?=$total - $totalPengeluaran;?></strong></td>
                     </tr>
                 </table>
             </td>

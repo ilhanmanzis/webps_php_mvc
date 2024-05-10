@@ -9,6 +9,9 @@ class Home extends Controller {
             $data['transaksi'] = $this->model('Transaksi_model')->getAllTransaksi();
             $data['operator'] = $this->model('Operator_model')->getAllOperator();
             $data['sift'] = $this->model('Sift_model')->getAllSift();
+            $data['pengeluaranToday'] = $this->model('Pengeluaran_model')->getAllPengeluaranToday();
+            $data['pengeluaran'] = $this->model('Pengeluaran_model')->getAllPengeluaran();
+
             $this->view('template/header', $data);
             $this->view('home/index',$data);
             $this->view('template/footer');

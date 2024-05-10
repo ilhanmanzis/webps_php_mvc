@@ -7,8 +7,3 @@ define('DB_PASS', '');
 define('DB_NAME', 'webps');
 
 ?>
-
-<script>
-    // untuk edit data, data diambil menggunakan axios
-    const BASEURL = 'http://localhost/webps/public';
-</script>

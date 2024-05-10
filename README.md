@@ -1,19 +1,18 @@
-Assalamualakum Wr wb.
+Assalamualakum Wr wb. 
 
-Alhamdulillah saya telah menyelesaikan project latihan pertama saya pengaplikasian MVC menggunakan PHP Native. saya membuat web laporan penyewaan ps pada tempat kerja teman saya.
+Alhamdulillah saya telah menyelesaikan  project latihan pertama saya pengaplikasian MVC menggunakan PHP Native. saya membuat web laporan penyewaan ps pada tempat kerja teman saya.
 
 framework dan bahasa yang saya gunakan
 
 Frontend :
-- Bootstrap 5
-- Template SB Admin 2
+1. Bootstrap 5
+2. Template SB Admin 2
 
 Backend
-- PHP Native
+1. PHP Native
 
 Database
-- Mysql
+1. Mysql
 
-Xampp versi php 7.4
 
-untuk mengubah baseurl atau link, database, dan lainya ada di dalam app/config/config.php
+Xampp versi php 7
