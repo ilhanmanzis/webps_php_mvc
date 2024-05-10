@@ -49,10 +49,10 @@
                 <input type="time" class="form-control form-control-user" id="jamSelesai" name="selesai" required>
 
                 <!-- fitur tambahan -->
-                <!-- <script>
+                <script>
                   const doneTime = document.getElementById('jamSelesai');
                   doneTime.value = `${formatJam+1}:${formatMenit}`;
-                </script> -->
+                </script>
 
             </div>
         </div>
